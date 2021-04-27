@@ -22,6 +22,7 @@ namespace LamdaExpression
             AddingPerson(list);//CAlling AddingPerson
             RetrieveTop2(list);//Calling RetrieveTop2
             RetrieveTeenageRecords(list);//Calling RetrieveTeenageRecords
+            FindAvgAgeForAll(list);//Calling FindAvgAgeForAll
         }
         //UC1 Adding Details
         public static void AddingPerson(List<PersonClass> personList)//Adding Method to Add Person Details
@@ -57,25 +58,37 @@ namespace LamdaExpression
         }
 
         //UC3 Retrieve age between 13 to 18 or less 
-        public static void RetrieveTeenageRecords(List<PersonClass> list)//Added Method to RetriveTeenAgeRecord
+        public static void RetrieveTeenageRecords(List<PersonClass> list)
         {
-            //Initialized Exception
             try
             {
-                //For finding Teenage
-                var result = list.FindAll(x => x.Age < 13 && x.Age > 18);
+                var result = list.FindAll(x => x.Age < 13 && x.Age > 18);//Teenage Record
                 foreach (PersonClass person in result)
                 {
                     Console.WriteLine("Age\t" + person.Age + "Name\t" + person.Name + "\t" + "Address\t" + person.Address);
-                    Console.Read();
+                    Console.ReadLine();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Console.Read();
             }
         }
 
+        public static void FindAvgAgeForAll(List<PersonClass> list)//Adding Method to find Average of All
+        {
+            try
+            {
+                var result = list.Average(x => x.Age);//Finding Average
+
+                Console.WriteLine("Average age among all persons\t" + result);
+                Console.ReadLine();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
