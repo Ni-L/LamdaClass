@@ -24,7 +24,8 @@ namespace LamdaExpression
             //RetrieveTop2(list);//Calling RetrieveTop2
             //RetrieveTeenageRecords(list);//Calling RetrieveTeenageRecords
             //FindAvgAgeForAll(list);//Calling FindAvgAgeForAll
-            SearchPerson(list);
+            //SearchPerson(list);
+            SkipLessThan60(list);
         }
         //UC1 Adding Details
         public static void AddingPerson(List<PersonClass> personList)//Adding Method to Add Person Details
@@ -35,6 +36,7 @@ namespace LamdaExpression
             personList.Add(new PersonClass() { SSN = 2, Age = 77, Name = "Snehal", Address = "Pune" });
             personList.Add(new PersonClass() { SSN = 6, Age = 15, Name = "Anku", Address = "Pune" });
             personList.Add(new PersonClass() { SSN = 8, Age = 75, Name = "Sneha", Address = "Pune" });
+          
         }
 
         public static void IterateOverLoop(List<PersonClass> personList)//Adding Method to Iterate Person
@@ -102,6 +104,24 @@ namespace LamdaExpression
                 Console.WriteLine("Average age among all persons\t" + result);
                 Console.ReadLine();
 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        //UC6 skip less than 60
+        public static void SkipLessThan60(List<PersonClass> list)//Adding Method Skip Less Than 60
+        {
+            try
+            {
+                var result = list.FindAll(x => x.Age > 60);//Finding Less than 60
+                foreach (PersonClass person in result)
+                {
+
+                    Console.WriteLine("Age\t" + person.Age + "Name\t" + person.Name + "\t" + "Address\t" + person.Address);
+                    Console.Read();
+                }
             }
             catch (Exception ex)
             {
