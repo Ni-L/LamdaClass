@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace LamdaExpression
 {/// <summary>
 /// MAin Method for Declaring Lambda Functions
@@ -18,11 +19,12 @@ namespace LamdaExpression
             Console.WriteLine("*******Welcome to Lambda Expressions*********");
             //Creating Listof PersonClass
             List<PersonClass> list = new List<PersonClass>();
-            IterateOverLoop(list);//Calling IterateOverLoop
-            AddingPerson(list);//CAlling AddingPerson
-            RetrieveTop2(list);//Calling RetrieveTop2
-            RetrieveTeenageRecords(list);//Calling RetrieveTeenageRecords
-            FindAvgAgeForAll(list);//Calling FindAvgAgeForAll
+            //IterateOverLoop(list);//Calling IterateOverLoop
+            //AddingPerson(list);//CAlling AddingPerson
+            //RetrieveTop2(list);//Calling RetrieveTop2
+            //RetrieveTeenageRecords(list);//Calling RetrieveTeenageRecords
+            //FindAvgAgeForAll(list);//Calling FindAvgAgeForAll
+            SearchPerson(list);
         }
         //UC1 Adding Details
         public static void AddingPerson(List<PersonClass> personList)//Adding Method to Add Person Details
@@ -74,12 +76,28 @@ namespace LamdaExpression
                 Console.WriteLine(ex.Message);
             }
         }
-
+        //UC4 Finf Average For All
         public static void FindAvgAgeForAll(List<PersonClass> list)//Adding Method to find Average of All
         {
             try
             {
                 var result = list.Average(x => x.Age);//Finding Average
+
+                Console.WriteLine("Average age among all persons\t" + result);
+                Console.ReadLine();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        //UC5 Search person
+        public static void SearchPerson(List<PersonClass> list)//Adding Method to search Person
+        {
+            try
+            {
+                var result = list.Where(x => x.Name == "Anku");//Serching
 
                 Console.WriteLine("Average age among all persons\t" + result);
                 Console.ReadLine();
